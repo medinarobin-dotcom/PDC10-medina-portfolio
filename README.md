@@ -18,13 +18,13 @@ Double-click `index.html`. Stay online so the fonts can load.
 
 ## Put it online with Vercel
 
-1. Sign in at github.com. Click **+** (top right), then **New repository**. Name it `robin-medina-portfolio`, leave it **Public**, and click **Create repository**.
+1. Sign in at github.com. Click **+** (top right), then **New repository**. Name it `medina-portfolio`, leave it **Public**, and click **Create repository**.
 2. On the new repository page, click **uploading an existing file**.
 3. Open this folder and drag everything inside it (`index.html`, `style.css`, `script.js`, `favicon.svg`, `README.md` and the `images` folder) onto the page. Drag the files, not the outer folder. Click **Commit changes**.
 4. Go to vercel.com, click **Sign Up**, choose **Hobby**, then **Continue with GitHub**.
-5. Go to vercel.com/new. Find `robin-medina-portfolio` and click **Import**. If it isn't listed, click **Adjust GitHub App Permissions** and give Vercel access to it.
+5. Go to vercel.com/new. Find `medina-portfolio` and click **Import**. If it isn't listed, click **Adjust GitHub App Permissions** and give Vercel access to it.
 6. Leave every setting as it is and click **Deploy**.
-7. After about a minute you get a link like `robin-medina-portfolio.vercel.app`. That's your live site.
+7. After about a minute you get a link like `medina-portfolio.vercel.app`. That's your live site.
 
 ## Changing it later
 
