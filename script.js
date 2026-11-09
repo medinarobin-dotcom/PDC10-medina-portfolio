@@ -338,7 +338,7 @@
     const canvas = $('#particles');
     if (!canvas || !canvas.getContext) return;
     const ctx = canvas.getContext('2d');
-    const palette = ['61,232,255', '174,140,255', '255,91,196', '82,245,168', '255,194,74'];
+    const palette = ['0,255,136', '255,255,255', '125,255,224', '198,255,79', '25,184,95'];
     const LINK = 128;
     const MOUSE_LINK = 170;
     const mouse = { x: -9999, y: -9999 };
@@ -408,7 +408,7 @@
           const dist2 = dx * dx + dy * dy;
           if (dist2 < LINK * LINK) {
             const alpha = (1 - Math.sqrt(dist2) / LINK) * 0.16;
-            ctx.strokeStyle = 'rgba(160,168,255,' + alpha.toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(170,255,205,' + alpha.toFixed(3) + ')';
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -420,7 +420,7 @@
         const md2 = mdx * mdx + mdy * mdy;
         if (md2 < MOUSE_LINK * MOUSE_LINK) {
           const alpha = (1 - Math.sqrt(md2) / MOUSE_LINK) * 0.38;
-          ctx.strokeStyle = 'rgba(61,232,255,' + alpha.toFixed(3) + ')';
+          ctx.strokeStyle = 'rgba(0,255,136,' + alpha.toFixed(3) + ')';
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(mouse.x, mouse.y);
