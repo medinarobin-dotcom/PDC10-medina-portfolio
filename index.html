@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robin J. Medina | Prompt Engineering Portfolio</title>
+<meta name="description" content="Robin J. Medina&#39;s PDC10 final individual project: every prompt, before and after learning to prompt properly, plus what I learned in the course.">
+<meta name="author" content="Robin J. Medina">
+<meta name="theme-color" content="#090a21">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Robin J. Medina | Prompt Engineering Portfolio">
+<meta property="og:description" content="Robin J. Medina&#39;s PDC10 final individual project: every prompt, before and after learning to prompt properly, plus what I learned in the course.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Unbounded:wght@300;400;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+  document.documentElement.className = 'js is-loading';
+  /* Safety net: if script.js never runs, show the page without the intro. */
+  setTimeout(function () {
+    if (!window.__portfolioReady) document.documentElement.className = 'no-js';
+  }, 9000);
+</script>
+<script src="script.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ Preloader ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader__hem" aria-hidden="true"></div>
+  <div class="preloader__panel">
+    <div class="preloader__core" aria-hidden="true">
+      <svg class="preloader__mark" viewBox="0 0 64 64">
+        <defs>
+          <linearGradient id="mark-gradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3de8ff"/><stop offset="0.5" stop-color="#ae8cff"/><stop offset="1" stop-color="#ff5bc4"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 18 L30 32 L14 46"/>
+        <path class="cursor" d="M36 46 H52"/>
+      </svg>
+      <p class="preloader__name">Robin J. Medina</p>
+      <ol class="preloader__log">
+        <li data-at="10" data-cat="role"><b>role</b><span>prompt engineering student</span><i>ok</i></li>
+        <li data-at="32" data-cat="task"><b>task</b><span>show every prompt, before and after</span><i>ok</i></li>
+        <li data-at="56" data-cat="context"><b>context</b><span>PDC10 final individual project</span><i>ok</i></li>
+        <li data-at="80" data-cat="format"><b>format</b><span>portfolio website</span><i>ok</i></li>
+      </ol>
+      <div class="preloader__meter">
+        <div class="preloader__track"><div class="preloader__fill"></div></div>
+        <p class="preloader__count"><span>0</span><small>%</small></p>
+      </div>
+    </div>
+    <button class="preloader__skip" type="button">Skip intro</button>
+  </div>
+</div>
+
+<!-- ============ Living background ============ -->
+<div class="bg" aria-hidden="true">
+  <div class="mesh"><i></i><i></i><i></i><i></i></div>
+  <div class="spotlight"></div>
+  <canvas class="particles" id="particles"></canvas>
+  <div class="grain"></div>
+</div>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<!-- ============ Navigation ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="nav-gradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3de8ff"/><stop offset="0.5" stop-color="#ae8cff"/><stop offset="1" stop-color="#ff5bc4"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 18 L30 32 L14 46"/>
+        <path class="cursor" d="M36 46 H52"/>
+      </svg>
+      <span>Robin J. Medina</span>
+    </a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav__bars" aria-hidden="true"></span><span>Menu</span>
+    </button>
+    <nav class="nav__menu" id="nav-menu" aria-label="Sections">
+      <a href="#before-after">Before and after</a>
+      <a href="#frameworks">Frameworks</a>
+      <a href="#fundamentals">Fundamentals</a>
+      <a href="#learned">What I learned</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap">
+    <p class="hero__who" data-neon>Robin J. Medina, BSIT-3A</p>
+    <h1 class="hero__title" id="hero-title" data-split data-track data-fit><span class="line">Prompt</span><span class="line">engineering</span></h1>
+    <div class="hero__row">
+      <div class="hero__intro">
+        <p class="hero__lede">My final individual project for <strong>PDC10</strong>: every prompt I wrote, before and after learning to prompt properly.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#before-after">See the before and after</a>
+          <a class="btn btn--ghost" href="#learned">What I learned</a>
+        </div>
+      </div>
+      <div class="console tilt" id="console" data-tilt="7" data-state="before" aria-hidden="true">
+        <div class="console__bar">
+          <span class="console__dot"></span>
+          <span class="console__state">Before</span>
+          <span class="console__name">Prompting with zero knowledge</span>
+        </div>
+        <div class="console__body">
+          <p class="console__ghost"></p>
+          <p class="console__live">How likely it is to win 10 coin tosses in a row</p>
+        </div>
+        <ul class="anatomy console__anatomy">
+          <li data-cat="role">Role</li>
+          <li data-cat="task" class="is-on">Task</li>
+          <li data-cat="context">Context</li>
+          <li data-cat="audience">Audience</li>
+          <li data-cat="format">Format</li>
+          <li data-cat="tone">Tone</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group"><span>Zero knowledge</span><span>RTCF</span><span>COSTAR</span><span>RISEN</span><span>CRAFT</span><span>RACE</span><span>TRACE</span><span>CRISPE</span><span>Zero-shot</span><span>One-shot</span><span>Few-shot</span><span>Role-based</span></div>
+    <div class="marquee__group"><span>Zero knowledge</span><span>RTCF</span><span>COSTAR</span><span>RISEN</span><span>CRAFT</span><span>RACE</span><span>TRACE</span><span>CRISPE</span><span>Zero-shot</span><span>One-shot</span><span>Few-shot</span><span>Role-based</span></div>
+  </div>
+</div>
+
+<!-- ============ Before and after ============ -->
+<section class="section" id="before-after" aria-labelledby="ba-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="ba-title" data-split data-track>Before and after</h2>
+      <p>With zero prompting knowledge, I typed a bare question and let the AI decide everything else. After learning prompting frameworks, I tell the AI who to be, what to do, what my situation is, and how the answer should look.</p>
+    </header>
+
+    <div class="ba__grid">
+      <article class="ba__panel ba__panel--before reveal" aria-labelledby="before-title">
+        <p class="ba__tag" data-neon>Before</p>
+        <h3 class="ba__title" id="before-title">Prompting with zero knowledge</h3>
+        <p class="prompt--plain" id="before-prompt">How likely it is to win 10 coin tosses in a row</p>
+        <ul class="anatomy" aria-label="Parts this prompt includes">
+          <li data-cat="role">Role<span class="sr-only"> (missing)</span></li>
+          <li data-cat="task" class="is-on">Task</li>
+          <li data-cat="context">Context<span class="sr-only"> (missing)</span></li>
+          <li data-cat="audience">Audience<span class="sr-only"> (missing)</span></li>
+          <li data-cat="format">Format<span class="sr-only"> (missing)</span></li>
+          <li data-cat="tone">Tone<span class="sr-only"> (missing)</span></li>
+        </ul>
+        <dl class="ba__stats">
+          <div><dt>words</dt><dd>12</dd></div>
+          <div><dt>part</dt><dd>1</dd></div>
+        </dl>
+        <figure class="outcome">
+          <button class="outcome__open" type="button" style="--ar: 1140 / 460; --focus: top" data-title="Prompting with zero knowledge: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/before-coin-toss.webp&#34;, &#34;w&#34;: 1140, &#34;h&#34;: 460, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the Prompting with zero knowledge prompt&#34;}]" aria-label="Open the AI's full answer to the Prompting with zero knowledge prompt">
+            <img src="images/before-coin-toss.webp" width="1140" height="460" alt="Screenshot of the AI&#39;s answer to the Prompting with zero knowledge prompt" data-preload decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> The AI answered with the math: (1/2)^10 = 1 in 1,024, or about 0.0977%.</figcaption>
+        </figure>
+      </article>
+
+      <div class="ba__flow" aria-hidden="true"><i></i></div>
+
+      <article class="ba__panel ba__panel--after reveal" aria-labelledby="after-title">
+        <p class="ba__tag" data-neon>After</p>
+        <h3 class="ba__title" id="after-title">Prompting with a framework: CRISPE</h3>
+        <p class="prompt__text">
+          <span class="seg" data-cat="role"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">You are a senior accountant.</span></span>
+          <span class="seg" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">Your role is a tax advisor.</span></span>
+          <span class="seg" data-cat="context"><span class="seg__tag" aria-hidden="true">I</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-cat="task"><span class="seg__tag" aria-hidden="true">S</span><span class="seg__text">Explain how taxes work and how to fill out a tax form.</span></span>
+          <span class="seg" data-cat="tone"><span class="seg__tag" aria-hidden="true">P</span><span class="seg__text">Use a professional tone.</span></span>
+          <span class="seg" data-cat="format"><span class="seg__tag" aria-hidden="true">E</span><span class="seg__text">Use a simple example of filling out a tax form.</span></span>
+        </p>
+        <ul class="anatomy" aria-label="Parts this prompt includes">
+          <li data-cat="role" class="is-on">Role</li>
+          <li data-cat="task" class="is-on">Task</li>
+          <li data-cat="context" class="is-on">Context</li>
+          <li data-cat="audience">Audience<span class="sr-only"> (missing)</span></li>
+          <li data-cat="format" class="is-on">Format</li>
+          <li data-cat="tone" class="is-on">Tone</li>
+        </ul>
+        <dl class="ba__stats">
+          <div><dt>words</dt><dd>52</dd></div>
+          <div><dt>parts</dt><dd>6</dd></div>
+        </dl>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 775 / 730; --focus: top" data-title="CRISPE: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/crispe-1.webp&#34;, &#34;w&#34;: 775, &#34;h&#34;: 730, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the CRISPE prompt, part 1 of 2&#34;}, {&#34;src&#34;: &#34;images/crispe-2.webp&#34;, &#34;w&#34;: 746, &#34;h&#34;: 818, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the CRISPE prompt, part 2 of 2&#34;}]" aria-label="Open the AI's full answer to the CRISPE prompt">
+            <img src="images/crispe-1.webp" width="775" height="730" alt="Screenshot of the AI&#39;s answer to the CRISPE prompt, part 1 of 2" data-preload decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer (2 screenshots)</span>
+          </button>
+          <figcaption><b>What came back:</b> A full walkthrough built on a ₱25,000 monthly salary example, a sample form with example entries, and what BIR Form 2316 is for.</figcaption>
+        </figure>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Frameworks ============ -->
+<section class="section" id="frameworks" aria-labelledby="fw-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="fw-title" data-split data-track>Prompting with frameworks</h2>
+      <p>Seven frameworks, each a different recipe for a structured prompt. Six of them were tested on the same request, explaining taxes for a first paycheck, so their answers can be compared. Point at or tap a letter to light up its part of the prompt.</p>
+      <ul class="legend" aria-label="Color key">
+        <li data-cat="role"><b>Role</b>who the AI should be</li>
+        <li data-cat="task"><b>Task</b>what it should do</li>
+        <li data-cat="context"><b>Context</b>my situation</li>
+        <li data-cat="audience"><b>Audience</b>who the answer is for</li>
+        <li data-cat="format"><b>Format</b>the shape of the answer</li>
+        <li data-cat="tone"><b>Tone</b>how it should sound</li>
+      </ul>
+    </header>
+
+    <div class="cards">
+      <article class="card card--fw tilt reveal" id="rtcf" data-name="RTCF / RTCFC" data-tilt="5" aria-labelledby="rtcf-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="rtcf-title">RTCF / RTCFC</h3>
+          <div class="decoder" role="group" aria-label="RTCF / RTCFC letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Role</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">T</span><span class="decoder__word">Task</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="context" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">C</span><span class="decoder__word">Context</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">F</span><span class="decoder__word">Format</span></button><span class="decoder__alt" aria-hidden="true">/ RTCFC</span>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">Your role is an accountant.</span></span>
+          <span class="seg" data-key="1" data-cat="task"><span class="seg__tag" aria-hidden="true">T</span><span class="seg__text">Your task is to explain how taxes work to someone who has no knowledge about the concept.</span></span>
+          <span class="seg" data-key="2" data-cat="context"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-key="3" data-cat="format"><span class="seg__tag" aria-hidden="true">F</span><span class="seg__text">Give simple and concise, step-by-step instructions on how taxes work and how to fill in a tax form.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 840 / 846; --focus: top" data-title="RTCF / RTCFC: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/rtcf.webp&#34;, &#34;w&#34;: 840, &#34;h&#34;: 846, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the RTCF / RTCFC prompt&#34;}]" aria-label="Open the AI's full answer to the RTCF / RTCFC prompt">
+            <img src="images/rtcf.webp" width="840" height="846" alt="Screenshot of the AI&#39;s answer to the RTCF / RTCFC prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> A nine-step guide, from understanding your paycheck to reviewing and submitting the form, ending with a one-line summary.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">55 words, 4 parts</span>
+          <button class="copy" type="button" data-copy="Your role is an accountant. Your task is to explain how taxes work to someone who has no knowledge about the concept. I just got my first paycheck, and I need to fill out a tax form. Give simple and concise, step-by-step instructions on how taxes work and how to fill in a tax form."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fw tilt reveal" id="costar" data-name="COSTAR" data-tilt="5" aria-labelledby="costar-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="costar-title">COSTAR</h3>
+          <div class="decoder" role="group" aria-label="COSTAR letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="context" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">C</span><span class="decoder__word">Context</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">O</span><span class="decoder__word">Objective</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="tone" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">S</span><span class="decoder__word">Style</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="tone" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">T</span><span class="decoder__word">Tone</span></button>
+            <button class="decoder__key" type="button" data-key="4" data-cat="audience" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">A</span><span class="decoder__word">Audience</span></button>
+            <button class="decoder__key" type="button" data-key="5" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Response</span></button>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="context"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-key="1" data-cat="task"><span class="seg__tag" aria-hidden="true">O</span><span class="seg__text">Explain how taxes work and how to fill in a tax form.</span></span>
+          <span class="seg" data-key="2" data-cat="tone"><span class="seg__tag" aria-hidden="true">S</span><span class="seg__text">Use simple words.</span></span>
+          <span class="seg" data-key="3" data-cat="tone"><span class="seg__tag" aria-hidden="true">T</span><span class="seg__text">Be formal.</span></span>
+          <span class="seg" data-key="4" data-cat="audience"><span class="seg__tag" aria-hidden="true">A</span><span class="seg__text">Someone who has no knowledge about taxes.</span></span>
+          <span class="seg" data-key="5" data-cat="format"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">Give simple and concise step-by-step instructions.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 864 / 706; --focus: top" data-title="COSTAR: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/costar.webp&#34;, &#34;w&#34;: 864, &#34;h&#34;: 706, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the COSTAR prompt&#34;}]" aria-label="Open the AI's full answer to the COSTAR prompt">
+            <img src="images/costar.webp" width="864" height="706" alt="Screenshot of the AI&#39;s answer to the COSTAR prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> Five steps on how taxes work and ten steps for filling out the form, with a note that forms differ by country and job type.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">45 words, 6 parts</span>
+          <button class="copy" type="button" data-copy="I just got my first paycheck, and I need to fill out a tax form. Explain how taxes work and how to fill in a tax form. Use simple words. Be formal. Someone who has no knowledge about taxes. Give simple and concise step-by-step instructions."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fw tilt reveal" id="risen" data-name="RISEN" data-tilt="5" aria-labelledby="risen-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="risen-title">RISEN</h3>
+          <div class="decoder" role="group" aria-label="RISEN letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Role</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">I</span><span class="decoder__word">Instructions</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">S</span><span class="decoder__word">Steps</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">E</span><span class="decoder__word">End goal</span></button>
+            <button class="decoder__key" type="button" data-key="4" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">N</span><span class="decoder__word">Narrowing</span></button>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">You are a biology teacher.</span></span>
+          <span class="seg" data-key="1" data-cat="task"><span class="seg__tag" aria-hidden="true">I</span><span class="seg__text">Explain the reproductive system of humans.</span></span>
+          <span class="seg" data-key="2" data-cat="task"><span class="seg__tag" aria-hidden="true">S</span><span class="seg__text">Explain the main parts of the human reproductive system while also describing their functions.</span></span>
+          <span class="seg" data-key="3" data-cat="task"><span class="seg__tag" aria-hidden="true">E</span><span class="seg__text">Help me understand the basic functions of different parts of the human reproductive system.</span></span>
+          <span class="seg" data-key="4" data-cat="format"><span class="seg__tag" aria-hidden="true">N</span><span class="seg__text">The explanation must be concise and simple, and each term&#39;s definition must be only 1 sentence long.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 822 / 862; --focus: top" data-title="RISEN: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/risen.webp&#34;, &#34;w&#34;: 822, &#34;h&#34;: 862, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the RISEN prompt&#34;}]" aria-label="Open the AI's full answer to the RISEN prompt">
+            <img src="images/risen.webp" width="822" height="862" alt="Screenshot of the AI&#39;s answer to the RISEN prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> One-sentence definitions for each part of the male and female reproductive systems, then the basic process from sperm production to pregnancy.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">56 words, 5 parts</span>
+          <button class="copy" type="button" data-copy="You are a biology teacher. Explain the reproductive system of humans. Explain the main parts of the human reproductive system while also describing their functions. Help me understand the basic functions of different parts of the human reproductive system. The explanation must be concise and simple, and each term&#39;s definition must be only 1 sentence long."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fw tilt reveal" id="craft" data-name="CRAFT" data-tilt="5" aria-labelledby="craft-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="craft-title">CRAFT</h3>
+          <div class="decoder" role="group" aria-label="CRAFT letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="context" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">C</span><span class="decoder__word">Context</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Role</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">A</span><span class="decoder__word">Action</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">F</span><span class="decoder__word">Format</span></button>
+            <button class="decoder__key" type="button" data-key="4" data-cat="audience" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">T</span><span class="decoder__word">Target audience</span></button>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="context"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-key="1" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">You are an accountant.</span></span>
+          <span class="seg" data-key="2" data-cat="task"><span class="seg__tag" aria-hidden="true">A</span><span class="seg__text">Explain how taxes work.</span></span>
+          <span class="seg" data-key="3" data-cat="format"><span class="seg__tag" aria-hidden="true">F</span><span class="seg__text">Give simple and concise, step-by-step instructions on how taxes work and how to fill in a tax form.</span></span>
+          <span class="seg" data-key="4" data-cat="audience"><span class="seg__tag" aria-hidden="true">T</span><span class="seg__text">The explanation is for someone who has no knowledge about taxes.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 813 / 652; --focus: top" data-title="CRAFT: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/craft.webp&#34;, &#34;w&#34;: 813, &#34;h&#34;: 652, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the CRAFT prompt&#34;}]" aria-label="Open the AI's full answer to the CRAFT prompt">
+            <img src="images/craft.webp" width="813" height="652" alt="Screenshot of the AI&#39;s answer to the CRAFT prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> A short explanation of withholding, eight steps for filling out the form, and a simple ₱20,000 salary example.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">52 words, 5 parts</span>
+          <button class="copy" type="button" data-copy="I just got my first paycheck, and I need to fill out a tax form. You are an accountant. Explain how taxes work. Give simple and concise, step-by-step instructions on how taxes work and how to fill in a tax form. The explanation is for someone who has no knowledge about taxes."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fw tilt reveal" id="race" data-name="RACE" data-tilt="5" aria-labelledby="race-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="race-title">RACE</h3>
+          <div class="decoder" role="group" aria-label="RACE letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Role</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">A</span><span class="decoder__word">Action</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="context" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">C</span><span class="decoder__word">Context</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">E</span><span class="decoder__word">Expectation</span></button>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">You are an accountant.</span></span>
+          <span class="seg" data-key="1" data-cat="task"><span class="seg__tag" aria-hidden="true">A</span><span class="seg__text">Explain how taxes work.</span></span>
+          <span class="seg" data-key="2" data-cat="context"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-key="3" data-cat="format"><span class="seg__tag" aria-hidden="true">E</span><span class="seg__text">I expect a concise and easy-to-understand explanation about taxes.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 791 / 571; --focus: top" data-title="RACE: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/race.webp&#34;, &#34;w&#34;: 791, &#34;h&#34;: 571, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the RACE prompt&#34;}]" aria-label="Open the AI's full answer to the RACE prompt">
+            <img src="images/race.webp" width="791" height="571" alt="Screenshot of the AI&#39;s answer to the RACE prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> Six steps on how taxes work, from earning income to settling the tax, plus a short checklist of what to enter on the form.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">32 words, 4 parts</span>
+          <button class="copy" type="button" data-copy="You are an accountant. Explain how taxes work. I just got my first paycheck, and I need to fill out a tax form. I expect a concise and easy-to-understand explanation about taxes."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fw tilt reveal" id="trace" data-name="TRACE" data-tilt="5" aria-labelledby="trace-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="trace-title">TRACE</h3>
+          <div class="decoder" role="group" aria-label="TRACE letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">T</span><span class="decoder__word">Task</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Role</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="audience" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">A</span><span class="decoder__word">Audience</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="context" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">C</span><span class="decoder__word">Context</span></button>
+            <button class="decoder__key" type="button" data-key="4" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">E</span><span class="decoder__word">Expectation</span></button>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="task"><span class="seg__tag" aria-hidden="true">T</span><span class="seg__text">Explain how taxes work.</span></span>
+          <span class="seg" data-key="1" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">You are an accountant.</span></span>
+          <span class="seg" data-key="2" data-cat="audience"><span class="seg__tag" aria-hidden="true">A</span><span class="seg__text">The explanation is for someone who has no knowledge about taxes.</span></span>
+          <span class="seg" data-key="3" data-cat="context"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-key="4" data-cat="format"><span class="seg__tag" aria-hidden="true">E</span><span class="seg__text">I expect a concise and easy-to-understand explanation about taxes.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 799 / 751; --focus: top" data-title="TRACE: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/trace.webp&#34;, &#34;w&#34;: 799, &#34;h&#34;: 751, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the TRACE prompt&#34;}]" aria-label="Open the AI's full answer to the TRACE prompt">
+            <img src="images/trace.webp" width="799" height="751" alt="Screenshot of the AI&#39;s answer to the TRACE prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> Written &#34;as an accountant&#34;: five plain-language steps, from earning money to checking the form before submitting it.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">43 words, 5 parts</span>
+          <button class="copy" type="button" data-copy="Explain how taxes work. You are an accountant. The explanation is for someone who has no knowledge about taxes. I just got my first paycheck, and I need to fill out a tax form. I expect a concise and easy-to-understand explanation about taxes."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fw tilt reveal" id="crispe" data-name="CRISPE" data-tilt="5" aria-labelledby="crispe-title">
+        <header class="card__head">
+          <h3 class="sr-only" id="crispe-title">CRISPE</h3>
+          <div class="decoder" role="group" aria-label="CRISPE letters">
+            <button class="decoder__key" type="button" data-key="0" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">C</span><span class="decoder__word">Capacity</span></button>
+            <button class="decoder__key" type="button" data-key="1" data-cat="role" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">R</span><span class="decoder__word">Role</span></button>
+            <button class="decoder__key" type="button" data-key="2" data-cat="context" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">I</span><span class="decoder__word">Insight</span></button>
+            <button class="decoder__key" type="button" data-key="3" data-cat="task" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">S</span><span class="decoder__word">Statement</span></button>
+            <button class="decoder__key" type="button" data-key="4" data-cat="tone" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">P</span><span class="decoder__word">Personality</span></button>
+            <button class="decoder__key" type="button" data-key="5" data-cat="format" aria-pressed="false"><span class="decoder__letter" aria-hidden="true">E</span><span class="decoder__word">Experiment</span></button>
+          </div>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-key="0" data-cat="role"><span class="seg__tag" aria-hidden="true">C</span><span class="seg__text">You are a senior accountant.</span></span>
+          <span class="seg" data-key="1" data-cat="role"><span class="seg__tag" aria-hidden="true">R</span><span class="seg__text">Your role is a tax advisor.</span></span>
+          <span class="seg" data-key="2" data-cat="context"><span class="seg__tag" aria-hidden="true">I</span><span class="seg__text">I just got my first paycheck, and I need to fill out a tax form.</span></span>
+          <span class="seg" data-key="3" data-cat="task"><span class="seg__tag" aria-hidden="true">S</span><span class="seg__text">Explain how taxes work and how to fill out a tax form.</span></span>
+          <span class="seg" data-key="4" data-cat="tone"><span class="seg__tag" aria-hidden="true">P</span><span class="seg__text">Use a professional tone.</span></span>
+          <span class="seg" data-key="5" data-cat="format"><span class="seg__tag" aria-hidden="true">E</span><span class="seg__text">Use a simple example of filling out a tax form.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 775 / 730; --focus: top" data-title="CRISPE: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/crispe-1.webp&#34;, &#34;w&#34;: 775, &#34;h&#34;: 730, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the CRISPE prompt, part 1 of 2&#34;}, {&#34;src&#34;: &#34;images/crispe-2.webp&#34;, &#34;w&#34;: 746, &#34;h&#34;: 818, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the CRISPE prompt, part 2 of 2&#34;}]" aria-label="Open the AI's full answer to the CRISPE prompt">
+            <img src="images/crispe-1.webp" width="775" height="730" alt="Screenshot of the AI&#39;s answer to the CRISPE prompt, part 1 of 2" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer (2 screenshots)</span>
+          </button>
+          <figcaption><b>What came back:</b> A full walkthrough built on a ₱25,000 monthly salary example, a sample form with example entries, and what BIR Form 2316 is for.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">52 words, 6 parts</span>
+          <button class="copy" type="button" data-copy="You are a senior accountant. Your role is a tax advisor. I just got my first paycheck, and I need to fill out a tax form. Explain how taxes work and how to fill out a tax form. Use a professional tone. Use a simple example of filling out a tax form."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Fundamentals ============ -->
+<section class="section" id="fundamentals" aria-labelledby="fun-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="fun-title" data-split data-track>Prompting fundamentals</h2>
+      <p>The core techniques: no example, one example, a few examples, and a role for the AI to play.</p>
+    </header>
+
+    <div class="cards cards--natural">
+      <article class="card card--fun tilt reveal" id="zero-shot" data-tilt="5" aria-labelledby="zero-shot-title">
+        <header class="card__head">
+          <h3 class="card__title" id="zero-shot-title">Zero-shot</h3>
+          <p class="card__def">No examples. Just the instruction and the review to classify.</p>
+        </header>
+        <div class="prompt--blocks">
+          <div class="block" data-cat="task"><span class="block__tag">Instruction</span><p class="block__text">Classify this review is positive, negative, or neutral.</p></div>
+          <div class="block" data-cat="input"><span class="block__tag">Input</span><p class="block__text">The review:
+Customer: The food is awful
+Review:</p></div>
+        </div>
+        <figure class="outcome">
+          <button class="outcome__open" type="button" style="--ar: 712 / 246; --focus: bottom" data-title="Zero-shot: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/zero-shot.webp&#34;, &#34;w&#34;: 712, &#34;h&#34;: 246, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the Zero-shot prompt&#34;}]" aria-label="Open the AI's full answer to the Zero-shot prompt">
+            <img src="images/zero-shot.webp" width="712" height="246" alt="Screenshot of the AI&#39;s answer to the Zero-shot prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> The AI answered: Negative.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">16 words</span>
+          <button class="copy" type="button" data-copy="Classify this review is positive, negative, or neutral.
+
+The review:
+Customer: The food is awful
+Review:"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fun tilt reveal" id="one-shot" data-tilt="5" aria-labelledby="one-shot-title">
+        <header class="card__head">
+          <h3 class="card__title" id="one-shot-title">One-shot</h3>
+          <p class="card__def">One worked example before the real review.</p>
+        </header>
+        <div class="prompt--blocks">
+          <div class="block" data-cat="task"><span class="block__tag">Instruction</span><p class="block__text">Classify this review is positive, negative, or neutral.</p></div>
+          <div class="block" data-cat="example"><span class="block__tag">Example</span><p class="block__text">The example:
+Customer: The food is amazing
+Review: Positive</p></div>
+          <div class="block" data-cat="input"><span class="block__tag">Input</span><p class="block__text">The review:
+Customer: The food is awful
+Review:</p></div>
+        </div>
+        <figure class="outcome">
+          <button class="outcome__open" type="button" style="--ar: 774 / 391; --focus: bottom" data-title="One-shot: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/one-shot.webp&#34;, &#34;w&#34;: 774, &#34;h&#34;: 391, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the One-shot prompt&#34;}]" aria-label="Open the AI's full answer to the One-shot prompt">
+            <img src="images/one-shot.webp" width="774" height="391" alt="Screenshot of the AI&#39;s answer to the One-shot prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> The AI answered: Negative.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">25 words</span>
+          <button class="copy" type="button" data-copy="Classify this review is positive, negative, or neutral.
+
+The example:
+Customer: The food is amazing
+Review: Positive
+
+The review:
+Customer: The food is awful
+Review:"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fun tilt reveal" id="few-shot" data-tilt="5" aria-labelledby="few-shot-title">
+        <header class="card__head">
+          <h3 class="card__title" id="few-shot-title">Few-shot</h3>
+          <p class="card__def">Three examples, so the AI can copy the pattern.</p>
+        </header>
+        <div class="prompt--blocks">
+          <div class="block" data-cat="task"><span class="block__tag">Instruction</span><p class="block__text">Translate Gen z slang into normal English</p></div>
+          <div class="block" data-cat="example"><span class="block__tag">Example 1</span><p class="block__text">Example 1:
+Slang: You are absolutely cooked
+English: You are in serious trouble</p></div>
+          <div class="block" data-cat="example"><span class="block__tag">Example 2</span><p class="block__text">Example 2:
+Slang: He is going Delulu on us
+English: He is being completely delusional right now</p></div>
+          <div class="block" data-cat="example"><span class="block__tag">Example 3</span><p class="block__text">Example 3:
+Slang: This food is bussin
+English: This food tastes incredible</p></div>
+          <div class="block" data-cat="input"><span class="block__tag">Input</span><p class="block__text">Task:
+Slang: Let him cook
+English:</p></div>
+        </div>
+        <figure class="outcome">
+          <button class="outcome__open" type="button" style="--ar: 730 / 509; --focus: bottom" data-title="Few-shot: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/few-shot.webp&#34;, &#34;w&#34;: 730, &#34;h&#34;: 509, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the Few-shot prompt&#34;}]" aria-label="Open the AI's full answer to the Few-shot prompt">
+            <img src="images/few-shot.webp" width="730" height="509" alt="Screenshot of the AI&#39;s answer to the Few-shot prompt" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer</span>
+          </button>
+          <figcaption><b>What came back:</b> The AI answered: &#34;Let him continue doing what he is doing because he is doing a good job.&#34;</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">55 words</span>
+          <button class="copy" type="button" data-copy="Translate Gen z slang into normal English
+
+Example 1:
+Slang: You are absolutely cooked
+English: You are in serious trouble
+
+Example 2:
+Slang: He is going Delulu on us
+English: He is being completely delusional right now
+
+Example 3:
+Slang: This food is bussin
+English: This food tastes incredible
+
+Task:
+Slang: Let him cook
+English:"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+      <article class="card card--fun tilt reveal" id="role-based" data-tilt="5" aria-labelledby="role-based-title">
+        <header class="card__head">
+          <h3 class="card__title" id="role-based-title">Role-based</h3>
+          <p class="card__def">The AI is given a role to answer from.</p>
+        </header>
+        <p class="prompt__text">
+          <span class="seg" data-cat="role"><span class="seg__tag" aria-hidden="true">Role</span><span class="seg__text">You are a fitness coach.</span></span>
+          <span class="seg" data-cat="task"><span class="seg__tag" aria-hidden="true">Task</span><span class="seg__text">Your task is to create a simple 5-day workout routine</span></span>
+          <span class="seg" data-cat="audience"><span class="seg__tag" aria-hidden="true">Audience</span><span class="seg__text">for a complete beginner</span></span>
+          <span class="seg" data-cat="context"><span class="seg__tag" aria-hidden="true">Context</span><span class="seg__text">who can only exercise for 1 hr a day.</span></span>
+        </p>
+        <figure class="outcome">
+          <button class="outcome__open is-cropped" type="button" style="--ar: 559 / 840; --focus: top" data-title="Role-based: the AI's answer" data-images="[{&#34;src&#34;: &#34;images/role-based-1.webp&#34;, &#34;w&#34;: 559, &#34;h&#34;: 840, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the Role-based prompt, part 1 of 2&#34;}, {&#34;src&#34;: &#34;images/role-based-2.webp&#34;, &#34;w&#34;: 541, &#34;h&#34;: 827, &#34;alt&#34;: &#34;Screenshot of the AI&#39;s answer to the Role-based prompt, part 2 of 2&#34;}]" aria-label="Open the AI's full answer to the Role-based prompt">
+            <img src="images/role-based-1.webp" width="559" height="840" alt="Screenshot of the AI&#39;s answer to the Role-based prompt, part 1 of 2" loading="lazy" decoding="async">
+            <span class="outcome__cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5 8.5 7.5M6.5 13.5h-4v-4M2.5 13.5l5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>View full answer (2 screenshots)</span>
+          </button>
+          <figcaption><b>What came back:</b> A 5-day beginner routine with timed blocks for each day, starting reps for each exercise, safety tips, a progress tracker and coach&#39;s advice.</figcaption>
+        </figure>
+        <footer class="card__foot">
+          <span class="card__meta">28 words</span>
+          <button class="copy" type="button" data-copy="You are a fitness coach. Your task is to create a simple 5-day workout routine for a complete beginner who can only exercise for 1 hr a day."><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 3.2A1.7 1.7 0 0 0 8.8 2H4a2 2 0 0 0-2 2v4.8a1.7 1.7 0 0 0 1.2 1.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="copy__label">Copy prompt</span></button>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ What I learned ============ -->
+<section class="section" id="learned" aria-labelledby="learned-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="learned-title" data-split data-track>What I learned in PDC10</h2>
+    </header>
+    <blockquote class="learned__lead">
+      <p data-split data-track>LLMs are just prediction engines, and not everything they say is guaranteed facts.</p>
+    </blockquote>
+    <ul class="path">
+      <li class="path__item">
+        <span class="path__node" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/><path d="m7.8 10.6 1.9 1.9 3.3-3.6"/></svg></span>
+        <h3 class="path__title">Check before trusting</h3>
+        <p class="path__text">This course also taught me to always check the AI responses before accepting their answers.</p>
+      </li>
+      <li class="path__item">
+        <span class="path__node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12.5 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
+        <h3 class="path__title">Frameworks bring consistency</h3>
+        <p class="path__text">I learned how to make my prompts better through the use of frameworks such as few-shot, role-based, and structured prompting, which helped with consistency and guiding AI to the correct response I wanted from it.</p>
+      </li>
+      <li class="path__item">
+        <span class="path__node" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg></span>
+        <h3 class="path__title">Recovery paths</h3>
+        <p class="path__text">I learned the importance of having recovery paths.</p>
+      </li>
+      <li class="path__item">
+        <span class="path__node" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span>
+        <h3 class="path__title">Context and RAG</h3>
+        <p class="path__text">I learned how to manage context and data from instructions and use RAG to ground answers in approved sources and improve the answers&#39; reliability.</p>
+      </li>
+      <li class="path__item">
+        <span class="path__node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2.5"/><path d="M9 4.5v-.7A1.3 1.3 0 0 1 10.3 2.5h3.4A1.3 1.3 0 0 1 15 3.8v.7"/><path d="m8.8 13 2.2 2.2 4.4-4.6"/></svg></span>
+        <h3 class="path__title">Auditing AI answers</h3>
+        <p class="path__text">I learned how to properly audit AI answers to reduce hallucinations through abstention rules and scoring rubrics.</p>
+      </li>
+      <li class="path__item">
+        <span class="path__node" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="8" width="15" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.1"/><circle cx="9.3" cy="13.3" r="1.1"/><circle cx="14.7" cy="13.3" r="1.1"/><path d="M2.5 12.5v2.5M21.5 12.5v2.5"/></svg></span>
+        <h3 class="path__title">Agentic AI</h3>
+        <p class="path__text">I discovered that an agentic AI is simply an AI with the ability to carry out tasks on its own.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__name" data-split data-track>Robin J. Medina</p>
+        <p class="footer__meta">BSIT-3A<br>PDC10 final individual project</p>
+      </div>
+      <a class="btn btn--ghost" href="#top">Back to top</a>
+    </div>
+    <p class="footer__note">Built with HTML, CSS and JavaScript.</p>
+  </div>
+</footer>
+
+<!-- ============ Screenshot viewer ============ -->
+<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer__frame">
+    <div class="viewer__bar">
+      <p class="viewer__title" id="viewer-title"></p>
+      <p class="viewer__count" aria-live="polite"></p>
+      <button class="viewer__close" type="button" aria-label="Close">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="viewer__stage"><img class="viewer__img" src="data:," alt=""></div>
+    <div class="viewer__nav" hidden>
+      <button class="btn btn--ghost" type="button" data-step="-1">Previous</button>
+      <button class="btn btn--ghost" type="button" data-step="1">Next</button>
+    </div>
+  </div>
+</dialog>
+<p class="sr-only" id="announcer" aria-live="polite"></p>
+</body>
+</html>
